@@ -76,6 +76,7 @@ namespace BrokerCSharp
             var subs = _subscriptions.Where(sub => sub.SubscribedEvent == evt.Name).ToList();
             req.Server.RaiseLogEvent("info", string.Format("event published: {0}", req.RawBody));
 
+            // loop for all subscribers have registered for push notification
             foreach (var sub in subs)
             {
                 var resource = EventFactory.CreatePublishedResource(evt.Name, sub.ClientId, evtData);
