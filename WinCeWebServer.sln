@@ -1,17 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompactWebServer", "..\CompactWebServer\CompactWebServer.csproj", "{19703227-D1EE-4B0D-B914-2318DB7D2C27}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompactWebServer", "CompactWebServer\CompactWebServer.csproj", "{19703227-D1EE-4B0D-B914-2318DB7D2C27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubSubApi", "..\PubSubApi\PubSubApi.csproj", "{367833F3-8F85-46A1-8B45-7253877234BA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PubSubApi", "PubSubApi\PubSubApi.csproj", "{367833F3-8F85-46A1-8B45-7253877234BA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestPubSub", "TestPubSub", "{656058DF-C9D6-4D8A-AE68-7B8F167D2205}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrokerCSharp", "..\BrokerCSharp\BrokerCSharp.csproj", "{89A13FED-6EE1-4AA4-A781-7C3897DDE15F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrokerCSharp", "BrokerCSharp\BrokerCSharp.csproj", "{89A13FED-6EE1-4AA4-A781-7C3897DDE15F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublisherCSharp", "..\PublisherCSharp\PublisherCSharp.csproj", "{55145B69-8709-4392-AF4D-C5C79765F027}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublisherCSharp", "PublisherCSharp\PublisherCSharp.csproj", "{55145B69-8709-4392-AF4D-C5C79765F027}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriberCSharp", "..\SubscriberCSharp\SubscriberCSharp.csproj", "{4E465A4D-0A72-4C38-ACC6-B1E0B5DE0C3A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriberCSharp", "SubscriberCSharp\SubscriberCSharp.csproj", "{4E465A4D-0A72-4C38-ACC6-B1E0B5DE0C3A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
