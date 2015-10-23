@@ -138,14 +138,14 @@ namespace CompactWebServer
             this.Port = ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Port.ToString();
         }
 
-        public T ParseJSON<T> ()
+        public T ParseJSON<T>()
         {
             if (ContentType != "application/json" || this.Body == null)
                 return default(T);
 
             T result = default(T);
 
-            try { result = JsonConvert.DeserializeObject<T>(this.RawBody); }
+            try { result = JsonConvert.DeserializeObject<T>(this.RawBody.Trim(new char[] { '\0' })); }
             catch { };
 
             return result;
@@ -158,7 +158,7 @@ namespace CompactWebServer
 
             object result = null;
 
-            try { result = JsonConvert.DeserializeObject(this.RawBody, type); }
+            try { result = JsonConvert.DeserializeObject(this.RawBody.Trim(new char[] { '\0' }), type); }
             catch { };
 
             return result;
@@ -184,7 +184,7 @@ namespace CompactWebServer
             int bodyIndex = 0;
             int contentLength = 0;
             this.Header = new Dictionary<string, string>();
-            int timeout = 10;
+            int timeout = 30;
 
             // avoid split over and over a big string
             do
@@ -196,7 +196,7 @@ namespace CompactWebServer
                     byteRead = ns.Read(buffer, 0, buffer.Length);            
                 else
                 {
-                    Thread.Sleep(1000);
+                    Thread.Sleep(300);
                     timeout--;
                     continue;
                 }
@@ -279,7 +279,7 @@ namespace CompactWebServer
                     // if it makes this far, which meanis all header is read
                     if (this.Body != null)
                     {
-                        Array.Copy(buffer, index, this.Body, bodyIndex, byteRead - index);
+                        Array.Copy(buffer, index, this.Body, bodyIndex, Math.Min(byteRead - index, contentLength - bodyIndex));
                         bodyIndex += byteRead - index;
                         finishReading = bodyIndex >= contentLength;
                     }

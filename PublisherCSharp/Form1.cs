@@ -35,17 +35,11 @@ namespace PublisherCSharp
                 Lat = txtLat.Text
             };
 
-            //WebClient.Test(string.Format("http://localhost:{0}/publish", DefaultSettings.BrokerPort), data);
-
             LogTextBox.Text += string.Format(">> Publishing event...\r\n");
             WebClient.PostJsonAsync(
                 string.Format("http://localhost:{0}/publish", DefaultSettings.BrokerPort),
                 data,
                 OnPublishResponse);
-            //WebClient.PostJson(
-            //    string.Format("http://localhost:{0}/publish", DefaultSettings.BrokerPort),
-            //    data);
-            //LogTextBox.Text += string.Format("Event published: ({0},{1})\r\n", data.Long, data.Lat);
         }
 
         private void OnPublishResponse(string responseText)

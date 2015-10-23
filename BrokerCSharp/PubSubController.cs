@@ -109,12 +109,12 @@ namespace BrokerCSharp
                 return;
             }
 
-            var pulled = _resources.Where(r => r.ClientId == data.ClientId && r.EventName == data.SubscribedEvent);
+            var pulled = _resources.Where(r => r.ClientId == data.ClientId && r.EventName == data.SubscribedEvent).ToList();
             _resources.RemoveAll(r => r.ClientId == data.ClientId && r.EventName == data.SubscribedEvent);
 
             req.Server.RaiseLogEvent("info", string.Format("client {0} pulling...", data.ClientId));
 
-            res.SendJson(pulled);
+            res.SendJson(new {items = pulled});
         }
 
         // no need for this api in demo
